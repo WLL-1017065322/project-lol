@@ -12,6 +12,7 @@ app.use("/admin", express.static(__dirname + "/admin"));
 app.use("/", express.static(__dirname + "/web"));
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use("/boss", express.static(__dirname + "/boss"));
+app.use("/web", express.static(__dirname + "/web"));
 
 require("./plugins/db")(app);
 require("./routes/admin")(app);

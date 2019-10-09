@@ -21,7 +21,8 @@ Vue.component("m-card", Card);
 //axios
 import axios from "axios";
 Vue.prototype.$http = axios.create({
-  baseURL: "http://localhost:3000/web/api"
+  // baseURL: "http://localhost:3000/web/api"
+  baseURL: "http://lol.wanglvlong.top/web/api"
 });
 
 import ListCard from "./components/ListCard.vue";

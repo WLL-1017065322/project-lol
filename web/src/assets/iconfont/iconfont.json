@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1196941",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "1289651",
+      "name": "menu",
+      "font_class": "menu1",
+      "unicode": "e504",
+      "unicode_decimal": 58628
+    },
+    {
+      "icon_id": "1392709",
+      "name": "news",
+      "font_class": "news",
+      "unicode": "e795",
+      "unicode_decimal": 59285
+    },
+    {
+      "icon_id": "3265205",
+      "name": "头盔",
+      "font_class": "toukui",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "4607082",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    }
+  ]
+}

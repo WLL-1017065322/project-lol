@@ -68,17 +68,15 @@
               <el-option v-for="item of items" :key="item._id" :label="item.name" :value="item._id"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="使用技巧">
-            <el-input type="textarea" v-model="model.usageTips"></el-input>
+          <el-form-item label="当你使用">
+            <el-input type="textarea" v-model="model.DATAallytips"></el-input>
           </el-form-item>
-          <el-form-item label="对抗技巧">
-            <el-input type="textarea" v-model="model.battleTips"></el-input>
-          </el-form-item>
-          <el-form-item label="团战思路">
-            <el-input type="textarea" v-model="model.teamTips"></el-input>
+          <el-form-item label="敌方使用">
+            <el-input type="textarea" v-model="model.DATAenemytips"></el-input>
           </el-form-item>
 
-          <el-form-item label="难度">
+
+          <el-form-item label="难度"> 
             <el-rate style="margin-top:0.6rem" :max="9" show-score v-model="model.scores.difficult"></el-rate>
           </el-form-item>
           <el-form-item label="技能">
@@ -184,7 +182,7 @@ export default {
         name: '',
         avatar: '',
         scores: {
-          difficult: null,
+          difficult: 0,
           skill: 0,
           attack: 0,
           survive: 0

@@ -118,3 +118,5 @@ JSON.stringfy($$(".hero-nav>li").map((li,i)=>{
 
 ## hero.model =>module.exports = mongoose.model('Hero', schema, 'heroes')加上es,不然默认heros
 
+## mongodb数据打包==mongodump -d node-vue-lol 放到服务器root 运行命令mongorestore
+

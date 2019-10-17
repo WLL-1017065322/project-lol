@@ -1,35 +1,17 @@
 <template>
   <div>
     <swiper :options="swiperOption">
-      <swiper-slide>
-        <img
-          class="w-100"
-          src="//ossweb-img.qq.com/upload/adw/image/20191004/14cb2bdd06ddc46a00cc4b763c34aa13.jpeg"
-          alt
-        />
-      </swiper-slide>
-      <swiper-slide>
-        <img
-          class="w-100"
-          src="//ossweb-img.qq.com/upload/adw/image/20191004/14cb2bdd06ddc46a00cc4b763c34aa13.jpeg"
-          alt
-        />
-      </swiper-slide>
-      <swiper-slide>
-        <img
-          class="w-100"
-          src="//ossweb-img.qq.com/upload/adw/image/20191004/14cb2bdd06ddc46a00cc4b763c34aa13.jpeg"
-          alt
-        />
+      <swiper-slide v-for="(swiper,index) in swiperLists" :key="index">
+        <img class="w-100" :src="swiper" alt />
       </swiper-slide>
       <div class="swiper-pagination pagination-home text-right px-3 pb-2" slot="pagination"></div>
     </swiper>
     <!-- end of swiper -->
     <div class="nav-icons bg-white mt-3 text-center pt-3 text-drak-1">
       <div class="d-flex flex-wrap">
-        <div class="nav-item mb-3" v-for="n in 10" :key="n">
-          <i class="sprite sprite-blz"></i>
-          <div class="py-2">爆料站</div>
+        <div class="nav-item mb-3" v-for="(item,index) in navLists" :key="index">
+          <i class="sprite" :class="'sprite-'+item.navClass"></i>
+          <div class="py-2">{{item.title}}</div>
         </div>
       </div>
 
@@ -140,16 +122,16 @@
             class="text-center p-2"
             style="width:20%;"
           >
-            <img :src="hero.avatar" class="w-100" alt />
+            <img :src="hero.img" class="w-100" alt />
             <div>{{hero.name}}</div>
           </router-link>
         </div>
       </template>
     </m-list-card>
     <!-- card3 -->
-    <m-card icon="menu" title="精彩视频"></m-card>
+    <!-- <m-card icon="menu" title="精彩视频"></m-card> -->
     <!-- card4 -->
-    <m-card icon="menu" title="图文攻略"></m-card>
+    <!-- <m-card icon="menu" title="图文攻略"></m-card> -->
     <!-- card5 -->
   </div>
 </template>
@@ -166,7 +148,25 @@ export default {
       },
       swiperSlides: [1, 2, 3],
       newsCats: [],
-      heroCats: []
+      heroCats: [],
+      navLists: [
+        { title: '爆料站', navClass: 'blz' },
+        { title: '故事站', navClass: 'gsz' },
+        { title: '周边商城', navClass: 'zbsc' },
+        { title: '体验服', navClass: 'tyf' },
+        { title: '新人专区', navClass: 'xrzq' },
+        { title: '荣耀·传承', navClass: 'rycc' },
+        { title: '同人社区', navClass: 'trsq' },
+        { title: '王者营地', navClass: 'wzyd' },
+        { title: '公众号', navClass: 'gzh' }
+      ],
+      swiperLists: [
+        'https://ossweb-img.qq.com/upload/adw/image/20191013/f6e663c9e901b84bc2401421f4529df0.jpeg',
+        'https://ossweb-img.qq.com/upload/adw/image/20191011/090fdd39257067e6a49dddab6a856c82.jpeg',
+        'https://ossweb-img.qq.com/upload/adw/image/20191015/3d652900dbe9dfc1446c9daede8b0638.jpeg',
+        'https://ossweb-img.qq.com/upload/adw/image/20191015/b6c016689f1e078c2cc94b49cc017ecf.jpeg',
+        'https://ossweb-img.qq.com/upload/adw/image/20191011/55eaaba8eeae5addeda5505b74d41826.jpeg'
+      ]
     };
   },
   filters: {

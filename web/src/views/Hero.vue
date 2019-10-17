@@ -1,10 +1,8 @@
 <template>
   <div class="page-hero" v-if="model">
     <div class="topbar bg-black py-2 px-3 d-flex ai-center text-white">
-      <img src="../assets/logo.png" height="30" />
+      <img src="//game.gtimg.cn/images/lol/v3/logo-public.png" height="30" />
       <div class="px-2 flex-1">
-        <span class="text-white">王者荣耀</span>
-        <span class="ml-2">攻略站</span>
       </div>
       <router-link to="/" tag="div">更多英雄 &gt;</router-link>
     </div>
@@ -70,19 +68,19 @@
                 <div v-if="currentSkill">
                   <div class="d-flex pt-4 pb-3">
                     <h3 class="m-0">{{currentSkill.name}}</h3>
-                    <span class="text-grey-1 ml-4">
+                    <!-- <span class="text-grey-1 ml-4">
                       (冷却值: {{currentSkill.delay}}
                       消耗: {{currentSkill.cost}})
-                    </span>
+                    </span> -->
                   </div>
                   <p>{{currentSkill.description}}</p>
                   <div class="border-bottom"></div>
-                  <p class="text-grey-1">小提示: {{currentSkill.tips}}</p>
+                  <!-- <p class="text-grey-1">小提示: {{currentSkill.tips}}</p> -->
                 </div>
               </div>
             </div>
 
-            <m-card plain icon="menu1" title="出装推荐" class="hero-items">
+            <!-- <m-card plain icon="menu1" title="出装推荐" class="hero-items">
               <div class="fs-xl">顺风出装</div>
               <div class="d-flex jc-around text-center mt-3">
                 <div v-for="item in model.items1" :key="item.name">
@@ -98,24 +96,25 @@
                   <div class="fs-xs">{{item.name}}</div>
                 </div>
               </div>
+            </m-card> -->
+            <m-card plain icon="menu1" title="英雄背景">
+              <p class="m-0">{{model.infotitle}}</p>
             </m-card>
-            <m-card plain icon="menu1" title="使用技巧">
-              <p class="m-0">{{model.usageTips}}</p>
+            <m-card plain icon="menu1" title="我方使用">
+              <p class="m-0" v-for="(DATAallytip,index) in model.DATAallytips" :key="index">{{DATAallytip}}</p>
             </m-card>
-            <m-card plain icon="menu1" title="对抗技巧">
-              <p class="m-0">{{model.battleTips}}</p>
+            <m-card plain icon="menu1" title="敌方使用">
+              <p class="m-0" v-for="(DATAenemytip,index) in model.DATAenemytips" :key="index">{{DATAenemytip}}</p>
             </m-card>
-            <m-card plain icon="menu1" title="团战思路">
-              <p class="m-0">{{model.teamTips}}</p>
-            </m-card>
-            <m-card plain icon="menu1" title="英雄关系">
+            <!-- 暂无数据 -->
+            <!-- <m-card plain icon="menu1" title="英雄关系">
               <div class="fs-xl">最佳搭档</div>
               <div v-for="item in model.partners" :key="item.name" class="d-flex pt-3">
                 <img :src="item.hero.avatar" alt height="50" />
                 <p class="flex-1 m-0 ml-3">{{item.description}}</p>
               </div>
               <div class="border-bottom mt-3"></div>
-            </m-card>
+            </m-card> -->
           </div>
         </swiper-slide>
         <swiper-slide></swiper-slide>
@@ -131,7 +130,8 @@ export default {
   },
   data() {
     return {
-      model: null
+      model: null,
+      currentSkillIndex:0
     };
   },
   methods: {

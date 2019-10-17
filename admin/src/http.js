@@ -4,7 +4,8 @@ import router from "./router";
 
 const http = axios.create({
   // baseURL: process.env.VUE_APP_API_URL || "/admin/api"
-  baseURL: "http://localhost:3000/admin/api"
+  // baseURL: "http://localhost:3000/admin/api"
+  baseURL: "http://lol.wanglvlong.top/admin/api"
 });
 http.interceptors.request.use(
   function(config) {
@@ -26,10 +27,17 @@ http.interceptors.response.use(
     return res;
   },
   err => {
-    console.log(err.response.data.message);
     // ele ui
     // 用户是否存在
-    if (err.response.data.message) {
+    if(err.response.data.message == "jwt expired"){
+      Vue.prototype.$message({
+        type: "error",
+        message: 'token过期',
+      });
+      localStorage.clear();
+      router.push("/login");
+    }
+    else if (err.response.data.message) {
       Vue.prototype.$message({
         type: "error",
         message: err.response.data.message
